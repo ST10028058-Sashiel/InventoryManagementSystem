@@ -1,0 +1,32 @@
+﻿@model IEnumerable<InventoryManagementSystem.Models.Product>
+
+<h2>Product List</h2>
+
+<a href="/Products/Create" class="btn btn-primary">Add New Product</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Category</td>
+                <td>@item.Price</td>
+                <td>@item.StockQuantity</td>
+                <td>
+                    <a href="/Products/Edit/@item.ProductID">Edit</a> |
+                    <a href="/Products/ProcessSale/@item.ProductID">Process Sale</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
